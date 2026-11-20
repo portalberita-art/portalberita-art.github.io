@@ -5,78 +5,270 @@ layout: null
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ site.title }}</title>
-  <meta name="description" content="{{ site.description }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.title | escape }} - Berita dan Wawasan Digital</title>
+  <meta name="description" content="{{ site.description | escape }}">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="{{ '/' | absolute_url }}">
 
   <style>
+    :root {
+      --navy: #10233f;
+      --gold: #e5ae49;
+      --blue: #1765a8;
+      --bg: #f3f6fa;
+    }
+
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f5f6f8;
-      color: #222;
+      background: var(--bg);
+      color: #172338;
+      line-height: 1.6;
     }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
     header {
-      background: #142d4e;
+      background: var(--navy);
       color: white;
-      padding: 25px 15px;
-      text-align: center;
     }
-    header h1 { margin: 0 0 10px; }
-    nav { background: #0c1e35; padding: 15px; text-align: center; }
-    nav a { color: white; text-decoration: none; margin: 0 12px; }
-    main { max-width: 1100px; margin: 30px auto; padding: 0 15px; }
-    .articles { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
-    article { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px #0001; }
-    article img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
-    .content { padding: 18px; }
-    .content h2 { font-size: 21px; line-height: 1.4; }
-    .content a { color: #145caa; text-decoration: none; }
-    .date { font-size: 13px; color: #777; }
-    footer { text-align: center; padding: 25px; background: #142d4e; color: white; margin-top: 40px; }
+
+    .brand {
+      padding: 25px 0;
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .brand span { color: var(--gold); }
+
+    .tagline {
+      color: #cbd5e1;
+      font-size: 13px;
+      padding-bottom: 18px;
+    }
+
+    nav {
+      background: #0b1a30;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      padding: 15px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      font-size: 14px;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    .hero {
+      padding: 45px 0 25px;
+    }
+
+    .eyebrow {
+      color: #b47a20;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.25;
+      margin: 10px 0;
+    }
+
+    .hero p { color: #64748b; }
+
+    .section-title {
+      margin: 25px 0;
+      font-size: 25px;
+      border-left: 5px solid var(--gold);
+      padding-left: 14px;
+    }
+
+    .articles {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,.06);
+      transition: transform .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content { padding: 20px; }
+
+    .meta {
+      font-size: 12px;
+      color: #a16d19;
+      font-weight: bold;
+    }
+
+    .card h2 {
+      font-size: 20px;
+      line-height: 1.4;
+      margin: 12px 0;
+    }
+
+    .card h2 a:hover { color: var(--blue); }
+
+    .excerpt {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .read-more {
+      display: inline-block;
+      color: var(--blue);
+      font-weight: bold;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #cbd5e1;
+      text-align: center;
+      padding: 35px 20px;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+
+    footer a { color: white; }
+
+    @media (max-width: 900px) {
+      .articles { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .articles { grid-template-columns: 1fr; }
+      .brand { font-size: 23px; }
+      .nav-links { gap: 15px; }
+      .hero { padding-top: 30px; }
+    }
   </style>
 </head>
+
 <body>
 
 <header>
-  <h1>Portal Berita Art</h1>
-  <p>Informasi Teknologi, Budaya dan Hiburan Digital</p>
+  <div class="container">
+    <div class="brand">
+      PORTAL BERITA <span>ART</span>
+    </div>
+    <div class="tagline">
+      Informasi Teknologi, Budaya & Hiburan Digital
+    </div>
+  </div>
 </header>
 
 <nav>
-  <a href="/">Beranda</a>
-  <a href="/about/">Tentang Kami</a>
+  <div class="container nav-links">
+    <a href="{{ '/' | relative_url }}">Beranda</a>
+    <a href="{{ '/category/teknologi/' | relative_url }}">Teknologi</a>
+    <a href="{{ '/category/budaya/' | relative_url }}">Budaya</a>
+    <a href="{{ '/category/hiburan/' | relative_url }}">Hiburan</a>
+    <a href="{{ '/about/' | relative_url }}">Tentang Kami</a>
+  </div>
 </nav>
 
-<main>
-  <h2>Berita Terbaru</h2>
+<main class="container">
 
-  <div class="articles">
-    {% for post in site.posts %}
-    <article>
-      {% if post.image %}
-      <a href="{{ post.url | relative_url }}">
-        <img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}">
-      </a>
-      {% endif %}
+  <section class="hero">
+    <div class="eyebrow">BERITA & WAWASAN TERKINI</div>
+    <h1>Jelajahi Perkembangan Dunia Digital</h1>
+    <p>
+      Temukan informasi teknologi, budaya, dan
+      perkembangan hiburan digital dalam satu portal.
+    </p>
+  </section>
 
-      <div class="content">
-        <p class="date">{{ post.date | date: "%d %B %Y" }}</p>
-        <h2>
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </h2>
-        <p>{{ post.description }}</p>
-        <a href="{{ post.url | relative_url }}">Baca Selengkapnya</a>
-      </div>
-    </article>
-    {% endfor %}
-  </div>
+  <section>
+    <h2 class="section-title">Berita Terbaru</h2>
+
+    <div class="articles">
+      {% for post in site.posts %}
+      <article class="card">
+
+        {% if post.image %}
+        <a href="{{ post.url | relative_url }}">
+          <img
+            src="{{ post.image | relative_url }}"
+            alt="{{ post.title | escape }}"
+            loading="lazy"
+            width="1280"
+            height="720">
+        </a>
+        {% endif %}
+
+        <div class="card-content">
+          <div class="meta">
+            {{ post.categories | first | default: "Berita" }}
+            · {{ post.date | date: "%d-%m-%Y" }}
+          </div>
+
+          <h2>
+            <a href="{{ post.url | relative_url }}">
+              {{ post.title }}
+            </a>
+          </h2>
+
+          <p class="excerpt">
+            {{ post.description | default: post.excerpt | strip_html | truncate: 150 }}
+          </p>
+
+          <a class="read-more" href="{{ post.url | relative_url }}">
+            Baca Selengkapnya
+          </a>
+        </div>
+
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
 </main>
 
 <footer>
-  &copy; {{ site.time | date: "%Y" }} Portal Berita Art
+  <strong>Portal Berita Art</strong>
+  <p>Informasi, Teknologi, Budaya dan Hiburan Digital</p>
+  <p>
+    <a href="{{ '/about/' | relative_url }}">Tentang Kami</a>
+    ·
+    <a href="{{ '/contact/' | relative_url }}">Kontak</a>
+    ·
+    <a href="{{ '/privacy-policy/' | relative_url }}">Privasi</a>
+  </p>
+  <p>&copy; {{ site.time | date: "%Y" }} Portal Berita Art</p>
 </footer>
 
 </body>
