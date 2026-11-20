@@ -1,82 +1,675 @@
-/* PORTAL BERITA ART */
-:root{--navy:#102d50;--navy-deep:#142747;--gold:#d6a347;--blue:#29618e;--text:#172a45;--muted:#65758b;--border:#e3e8f0;--bg:#f5f7fb}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Arial,Helvetica,sans-serif;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-a:hover{color:#bc862e}
-img{max-width:100%}
-/* Same centered content width for header, hero, ticker, grid and footer */
-.wrap{width:min(960px,calc(100% - 40px));margin-inline:auto}
-.site-header{background:#fff;border-top:4px solid var(--gold);border-bottom:1px solid #e6eaf1}
-.header-row{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:10px}
-.brand{display:inline-flex;align-items:center;min-width:0}
-.brand img{display:block;max-width:100%;width:auto;height:auto;max-height:62px;object-fit:contain}
-.brand-text{font-size:23px;color:#142e52;font-weight:800}
-.brand-text em{color:#c6953b;font-style:normal}
-.header-nav{display:flex;gap:24px;flex-wrap:wrap;font-weight:600;font-size:14px}
-.main-area{padding:32px 0 60px;min-height:65vh}
-/* Compact, contained welcome banner */
-.welcome{background:var(--navy-deep);color:#fff;padding:28px 32px;border-radius:13px;margin-bottom:26px;position:relative;overflow:hidden;isolation:isolate}
-.welcome:after{content:'';position:absolute;width:210px;height:210px;border:34px solid rgba(218,166,70,.10);border-radius:50%;right:-100px;top:-125px;pointer-events:none;z-index:-1}
-.eyebrow{font-size:11px;font-weight:800;letter-spacing:1.7px;color:#e2b45e}
-.welcome h1{font-size:clamp(25px,3vw,32px);line-height:1.25;max-width:680px;margin:10px 0 12px}
-.welcome p{max-width:720px;color:#dce6f3;margin:0;font-size:14px;line-height:1.7}
-/* Highlight remains aligned with page width */
-.highlight{border:1px solid #dce4f0;background:#fff;border-radius:12px;overflow:hidden;margin-bottom:30px;box-shadow:0 6px 18px #142b5010}
-.highlight-head{display:flex;align-items:center;gap:12px;background:linear-gradient(110deg,#153456,#426da8);color:white;padding:11px 18px}
-.highlight-head h2{margin:0;text-transform:uppercase;letter-spacing:.7px;font-size:18px}
-.highlight-head>span:last-child{margin-left:auto;font-size:11px;opacity:.85}
-.spark{color:#edc46f}
-.ticker{overflow:hidden;padding:14px 0}
-.ticker-track{display:flex;align-items:center;gap:22px;width:max-content;animation:move 45s linear infinite}
-.ticker:hover .ticker-track{animation-play-state:paused}
-.ticker-track a{white-space:nowrap;font-weight:700;font-size:13px}
-.ticker-track span{color:#c39a48;padding-left:22px}
-@keyframes move{to{transform:translateX(-50%)}}
-/* Two cards + right sidebar, within 960px */
-.content-grid{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:24px;align-items:start}
-.content-grid>*{min-width:0}
-.section-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}
-.section-title h2{font-size:24px;margin:0;border-left:4px solid var(--gold);padding-left:12px;line-height:1.35}
-.section-title>a{color:var(--blue);font-size:13px;font-weight:bold;white-space:nowrap}
-.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.story-card{min-width:0;background:white;border:1px solid #e7ebf2;border-radius:11px;overflow:hidden;box-shadow:0 4px 14px #142b5009}
-.story-card img{display:block;width:100%;aspect-ratio:16/9;height:auto;object-fit:cover}
-.story-body{padding:16px}
-.post-meta{font-size:12px;color:#7c8796;margin:0 0 9px}
-.story-body h3{font-size:17px;line-height:1.45;margin:0 0 10px;overflow-wrap:anywhere}
-.story-body>p:not(.post-meta){font-size:13px;color:#5d6c7f;margin:0 0 12px}
-.read{color:#225c94;font-size:13px;font-weight:700}
-.all-link,.panel-button{display:block;background:#173b65;color:white!important;padding:11px 14px;border-radius:8px;text-align:center;font-weight:700;font-size:13px;margin-top:18px}
-.all-link:hover,.panel-button:hover{background:#2b6597}
-.side-panel{background:white;border:1px solid var(--border);border-radius:12px;padding:19px;margin-bottom:18px}
-.side-panel h2{margin:0 0 13px;font-size:19px;border-bottom:2px solid var(--gold);padding-bottom:11px}
-.side-panel ul{padding:0;margin:0;list-style:none}
-.side-panel li{border-bottom:1px solid #edf0f4;padding:11px 0;font-size:13px;overflow-wrap:anywhere}
-.side-panel small,.archive-group small{font-size:12px;color:#798597}
-.page-heading{margin:10px 0 26px}
-.page-heading h1{font-size:clamp(28px,3vw,34px);margin:5px 0}
-.page-heading p{color:var(--muted)}
-.archive-group,.text-page,.article-page{background:white;border-radius:13px;padding:28px;margin-bottom:24px;border:1px solid #e8edf3}
-.archive-group h2{margin-top:0;color:#173b65}
-.archive-group ul{list-style:none;padding:0}
-.archive-group li{padding:11px 0;border-bottom:1px solid #eef0f4;display:flex;gap:20px}
-.archive-group time{color:#788597;white-space:nowrap;font-size:13px}
-.article-page{max-width:850px;margin:0 auto}
-.article-page h1{font-size:clamp(27px,3vw,36px);line-height:1.3;margin:10px 0 14px}
-.article-label{font-size:12px;color:#ac7b2b;font-weight:bold;text-transform:uppercase}
-.post-hero{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:9px;margin:16px 0}
-.post-lead{font-size:18px;color:#526276}
-.article-body{font-size:17px;line-height:1.85;overflow-wrap:anywhere}
-.article-body img{max-width:100%;height:auto}
-.article-body h2{margin-top:30px}
-.back-link{margin-top:35px;border-top:1px solid #eee;padding-top:20px;color:#225c94}
-.text-page{max-width:850px}
-.site-footer{background:var(--navy);color:#dbe5ef;padding:32px 0}
-.footer-grid{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}
-.footer-grid strong{color:#fff}
-.footer-grid nav{display:flex;gap:20px;flex-wrap:wrap;font-size:14px}
-@media(max-width:850px){.content-grid{grid-template-columns:1fr}.header-row{flex-wrap:wrap}.header-nav{gap:16px}.welcome{padding:26px 24px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:580px){.wrap{width:calc(100% - 28px)}.main-area{padding-top:22px}.cards{grid-template-columns:1fr}.welcome{padding:24px 20px}.welcome h1{font-size:26px}.header-row{min-height:0;gap:12px}.brand img{max-height:54px}.header-nav{font-size:13px}.archive-group li{display:block}.archive-group time{display:block}.article-page,.text-page,.archive-group{padding:20px}.highlight-head>span:last-child{display:none}.section-title h2{font-size:22px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker-track{animation:none;flex-wrap:wrap;width:auto;padding:0 14px}.ticker-track a[aria-hidden=true]{display:none}}
+
+/* ==========================================
+   PORTAL BERITA ART
+   ========================================== */
+
+:root {
+  --navy: #102d50;
+  --navy-deep: #142747;
+  --gold: #d6a347;
+  --blue: #29618e;
+  --text: #172a45;
+  --muted: #65758b;
+  --border: #e3e8f0;
+  --bg: #f5f7fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.65 Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #bc862e;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ==========================================
+   CONTAINER UTAMA
+   ========================================== */
+
+.wrap {
+  width: min(960px, calc(100% - 40px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================
+   HEADER DAN LOGO WEBSITE
+   ========================================== */
+
+.site-header {
+  background: #ffffff;
+  border-top: 3px solid var(--gold);
+  border-bottom: 1px solid #e6eaf1;
+}
+
+.header-row {
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.brand img {
+  display: block;
+  width: 280px;
+  max-width: 100%;
+  height: auto;
+  max-height: 80px;
+  object-fit: contain;
+}
+
+.brand-text {
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--navy-deep);
+}
+
+.brand-text em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.header-nav a {
+  color: var(--text);
+  transition: color .2s ease;
+}
+
+.header-nav a:hover {
+  color: #bc862e;
+}
+
+/* ==========================================
+   AREA KONTEN
+   ========================================== */
+
+.main-area {
+  padding: 32px 0 60px;
+  min-height: 65vh;
+}
+
+/* ==========================================
+   BANNER SAMBUTAN
+   ========================================== */
+
+.welcome {
+  background: var(--navy-deep);
+  color: #ffffff;
+  padding: 28px 32px;
+  border-radius: 13px;
+  margin-bottom: 26px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.welcome::after {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border: 34px solid rgba(218,166,70,.10);
+  border-radius: 50%;
+  right: -100px;
+  top: -125px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+  color: #e2b45e;
+}
+
+.welcome h1 {
+  font-size: clamp(25px, 3vw, 32px);
+  line-height: 1.25;
+  max-width: 680px;
+  margin: 10px 0 12px;
+}
+
+.welcome p {
+  max-width: 720px;
+  color: #dce6f3;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   HIGHLIGHT ARTIKEL BERJALAN
+   ========================================== */
+
+.highlight {
+  border: 1px solid #dce4f0;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 18px #142b5010;
+}
+
+.highlight-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(
+    110deg,
+    #153456,
+    #426da8
+  );
+  color: #ffffff;
+  padding: 11px 18px;
+}
+
+.highlight-head h2 {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  font-size: 18px;
+}
+
+.highlight-head > span:last-child {
+  margin-left: auto;
+  font-size: 11px;
+  opacity: .85;
+}
+
+.spark {
+  color: #edc46f;
+}
+
+.ticker {
+  overflow: hidden;
+  padding: 14px 0;
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  width: max-content;
+  animation: move 45s linear infinite;
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-track a {
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.ticker-track span {
+  color: #c39a48;
+  padding-left: 22px;
+}
+
+@keyframes move {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================
+   ARTIKEL DAN SIDEBAR
+   ========================================== */
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 270px;
+  gap: 24px;
+  align-items: start;
+}
+
+.content-grid > * {
+  min-width: 0;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.section-title h2 {
+  font-size: 24px;
+  margin: 0;
+  border-left: 4px solid var(--gold);
+  padding-left: 12px;
+  line-height: 1.35;
+}
+
+.section-title > a {
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* ==========================================
+   KARTU ARTIKEL
+   ========================================== */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.story-card {
+  min-width: 0;
+  background: #ffffff;
+  border: 1px solid #e7ebf2;
+  border-radius: 11px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px #142b5009;
+  transition: transform .2s ease,
+              box-shadow .2s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px #142b5018;
+}
+
+.story-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  object-fit: cover;
+}
+
+.story-body {
+  padding: 16px;
+}
+
+.post-meta {
+  font-size: 12px;
+  color: #7c8796;
+  margin: 0 0 9px;
+}
+
+.story-body h3 {
+  font-size: 17px;
+  line-height: 1.45;
+  margin: 0 0 10px;
+  overflow-wrap: anywhere;
+}
+
+.story-body > p:not(.post-meta) {
+  font-size: 13px;
+  color: #5d6c7f;
+  margin: 0 0 12px;
+}
+
+.read {
+  color: #225c94;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ==========================================
+   TOMBOL
+   ========================================== */
+
+.all-link,
+.panel-button {
+  display: block;
+  background: #173b65;
+  color: #ffffff !important;
+  padding: 11px 14px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 13px;
+  margin-top: 18px;
+  transition: background .2s ease;
+}
+
+.all-link:hover,
+.panel-button:hover {
+  background: #2b6597;
+}
+
+/* ==========================================
+   SIDEBAR DAN ARSIP
+   ========================================== */
+
+.side-panel {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 19px;
+  margin-bottom: 18px;
+}
+
+.side-panel h2 {
+  margin: 0 0 13px;
+  font-size: 19px;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 11px;
+}
+
+.side-panel ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.side-panel li {
+  border-bottom: 1px solid #edf0f4;
+  padding: 11px 0;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.side-panel small,
+.archive-group small {
+  font-size: 12px;
+  color: #798597;
+}
+
+/* ==========================================
+   HALAMAN ARTIKEL DAN ARSIP
+   ========================================== */
+
+.page-heading {
+  margin: 10px 0 26px;
+}
+
+.page-heading h1 {
+  font-size: clamp(28px, 3vw, 34px);
+  margin: 5px 0;
+}
+
+.page-heading p {
+  color: var(--muted);
+}
+
+.archive-group,
+.text-page,
+.article-page {
+  background: #ffffff;
+  border-radius: 13px;
+  padding: 28px;
+  margin-bottom: 24px;
+  border: 1px solid #e8edf3;
+}
+
+.archive-group h2 {
+  margin-top: 0;
+  color: #173b65;
+}
+
+.archive-group ul {
+  list-style: none;
+  padding: 0;
+}
+
+.archive-group li {
+  padding: 11px 0;
+  border-bottom: 1px solid #eef0f4;
+  display: flex;
+  gap: 20px;
+}
+
+.archive-group time {
+  color: #788597;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+/* ==========================================
+   HALAMAN DETAIL ARTIKEL
+   ========================================== */
+
+.article-page {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.article-page h1 {
+  font-size: clamp(27px, 3vw, 36px);
+  line-height: 1.3;
+  margin: 10px 0 14px;
+}
+
+.article-label {
+  font-size: 12px;
+  color: #ac7b2b;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.post-hero {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 9px;
+  margin: 16px 0;
+}
+
+.post-lead {
+  font-size: 18px;
+  color: #526276;
+}
+
+.article-body {
+  font-size: 17px;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+
+.article-body img {
+  max-width: 100%;
+  height: auto;
+}
+
+.article-body h2 {
+  margin-top: 30px;
+}
+
+.back-link {
+  margin-top: 35px;
+  border-top: 1px solid #eeeeee;
+  padding-top: 20px;
+  color: #225c94;
+}
+
+.text-page {
+  max-width: 850px;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.site-footer {
+  background: var(--navy);
+  color: #dbe5ef;
+  padding: 32px 0;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.footer-grid strong {
+  color: #ffffff;
+}
+
+.footer-grid nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+/* ==========================================
+   TABLET
+   ========================================== */
+
+@media (max-width: 850px) {
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header-row {
+    flex-wrap: wrap;
+  }
+
+  .header-nav {
+    gap: 16px;
+  }
+
+  .welcome {
+    padding: 26px 24px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 580px) {
+
+  .wrap {
+    width: calc(100% - 28px);
+  }
+
+  .main-area {
+    padding-top: 22px;
+  }
+
+  .header-row {
+    min-height: 0;
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .brand img {
+    width: 220px;
+    max-height: 65px;
+  }
+
+  .header-nav {
+    gap: 14px;
+    font-size: 13px;
+  }
+
+  .welcome {
+    padding: 24px 20px;
+  }
+
+  .welcome h1 {
+    font-size: 26px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-group li {
+    display: block;
+  }
+
+  .archive-group time {
+    display: block;
+  }
+
+  .article-page,
+  .text-page,
+  .archive-group {
+    padding: 20px;
+  }
+
+  .highlight-head > span:last-child {
+    display: none;
+  }
+
+  .section-title h2 {
+    font-size: 22px;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .ticker-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+    padding: 0 14px;
+  }
+
+  .ticker-track a[aria-hidden=true] {
+    display: none;
+  }
+
+  .story-card {
+    transition: none;
+  }
+}
