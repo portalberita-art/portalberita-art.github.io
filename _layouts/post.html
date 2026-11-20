@@ -1,209 +1,148 @@
+
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
   <!-- GOOGLE SEARCH CONSOLE -->
   <meta name="google-site-verification"
         content="XrEdpj3scxzkps_2U0HpBMau-KzvNKWf7DcsJlytHwE">
 
-  <!-- JEKYLL SEO -->
+  <!-- SEO JEKYLL -->
   {% seo %}
 
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <!-- ROBOTS -->
+  <meta name="robots"
+        content="index, follow, max-image-preview:large">
 
-  
-<!-- FAVICON PORTAL BERITA ART -->
-<link rel="icon"
-      type="image/png"
-      href="{{ '/assets/images/favicon.png' | relative_url }}">
+  <!-- FAVICON -->
+  <link rel="icon"
+        type="image/png"
+        href="{{ '/assets/images/favicon.png' | relative_url }}">
 
-<link rel="apple-touch-icon"
-      href="{{ '/assets/images/favicon.png' | relative_url }}">
+  <link rel="apple-touch-icon"
+        href="{{ '/assets/images/favicon.png' | relative_url }}">
 
-<!-- INFORMASI ARTIKEL -->
-<meta name="author"
-      content="{{ page.author | default: site.title | escape }}">
+  <!-- CSS UTAMA -->
+  <link rel="stylesheet"
+        href="{{ '/assets/css/style.css' | relative_url }}">
 
-<meta property="article:published_time"
-      content="{{ page.date | date_to_xmlschema }}">
+  <!-- INFORMASI ARTIKEL -->
+  <meta name="author"
+        content="{{ page.author | default: site.title | escape }}">
 
-{% if page.last_modified_at %}
-<meta property="article:modified_time"
-      content="{{ page.last_modified_at | date_to_xmlschema }}">
-{% endif %}
+  {% if page.date %}
+  <meta property="article:published_time"
+        content="{{ page.date | date_to_xmlschema }}">
+  {% endif %}
 
-  
-<!-- STRUCTURED DATA ARTIKEL -->
-{% assign article_image = page.image | absolute_url %}
+  {% if page.last_modified_at %}
+  <meta property="article:modified_time"
+        content="{{ page.last_modified_at | date_to_xmlschema }}">
+  {% endif %}
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": {{ page.title | jsonify }},
-  "description": {{ page.description | jsonify }},
-  "image": {{ article_image | jsonify }},
-  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
-  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
-  "author": {
-    "@type": "Organization",
-    "name": {{ page.author | default: site.title | jsonify }}
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": {{ site.title | jsonify }}
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": {{ page.url | absolute_url | jsonify }}
+  <!-- STRUCTURED DATA ARTIKEL -->
+  {% assign article_description = page.description | default: page.excerpt | strip_html | strip_newlines %}
+  {% assign article_date_modified = page.last_modified_at | default: page.date %}
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ page.title | jsonify }},
+    "description": {{ article_description | jsonify }},
+    {% if page.image %}
+    "image": {{ page.image | absolute_url | jsonify }},
+    {% endif %}
+    "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+    "dateModified": {{ article_date_modified | date_to_xmlschema | jsonify }},
+    "author": {
+      "@type": "Organization",
+      "name": {{ page.author | default: site.title | jsonify }}
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": {{ site.title | jsonify }}
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": {{ page.url | absolute_url | jsonify }}
+    }
   }
-}
-</script>
+  </script>
 
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f6f8;
-      color: #222;
-      line-height: 1.8;
-    }
-
-    header {
-      background: #142d4e;
-      padding: 22px;
-      text-align: center;
-    }
-
-    header a {
-      color: white;
-      text-decoration: none;
-      font-size: 25px;
-      font-weight: bold;
-    }
-
-    main {
-      max-width: 800px;
-      margin: 30px auto;
-      padding: 30px;
-      background: white;
-      border-radius: 10px;
-    }
-
-    h1 {
-      font-size: 32px;
-      line-height: 1.3;
-    }
-
-    .meta {
-      color: #777;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    .featured-image {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .article-content {
-      font-size: 17px;
-    }
-
-    .article-content img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #777;
-    }
-
-    @media (max-width: 600px) {
-      main {
-        margin: 10px;
-        padding: 18px;
-      }
-
-      h1 {
-        font-size: 26px;
-      }
-    }
-   
-header {
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.site-logo {
-  display: block;
-  width: 340px;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-}
-
-@media (max-width: 600px) {
-  .site-logo {
-    width: 260px;
-  }
-}
- 
-  </style>
 </head>
 
 <body>
 
-<header>
-  <a href="{{ '/' | relative_url }}"
-     aria-label="Beranda Portal Berita Art">
-    <img
-      src="{{ '/assets/images/logo-portalberita.png' | relative_url }}"
-      alt="Portal Berita Art"
-      class="site-logo"
-      width="340">
-  </a>
-</header>
+  <!-- LOGO DAN MENU NAVIGASI -->
+  {% include header.html %}
 
+  <!-- KONTEN ARTIKEL -->
+  <main class="main-area">
+    <div class="wrap">
 
-<main>
-  <article>
+      <article class="article-page">
 
-    <h1>{{ page.title }}</h1>
+        <!-- KATEGORI -->
+        {% if page.categories.size > 0 %}
+        <div class="article-label">
+          {{ page.categories | first | escape }}
+        </div>
+        {% endif %}
 
-   <div class="meta">
-  <time datetime="{{ page.date | date_to_xmlschema }}">
-    {{ page.date | date: "%d-%m-%Y" }}
-  </time>
-  | Oleh {{ page.author | default: site.title }}
-</div>
+        <!-- JUDUL ARTIKEL -->
+        <h1>{{ page.title | escape }}</h1>
 
+        <!-- TANGGAL DAN PENULIS -->
+        <p class="post-meta">
+          <time datetime="{{ page.date | date_to_xmlschema }}">
+            {{ page.date | date: "%d-%m-%Y" }}
+          </time>
+          &nbsp;·&nbsp;
+          Oleh {{ page.author | default: site.title | escape }}
+        </p>
 
-    {% if page.image %}
-    <img
-      class="featured-image"
-      src="{{ page.image | relative_url }}"
-      alt="{{ page.title | escape }}"
-      width="1280"
-      height="720">
-    {% endif %}
+        <!-- GAMBAR UTAMA -->
+        {% if page.image %}
+        <img
+          class="post-hero"
+          src="{{ page.image | relative_url }}"
+          alt="{{ page.title | escape }}"
+          width="1280"
+          height="720"
+          loading="eager">
+        {% endif %}
 
-    <div class="article-content">
-      {{ content }}
+        <!-- DESKRIPSI ARTIKEL -->
+        {% if page.description %}
+        <p class="post-lead">
+          {{ page.description | escape }}
+        </p>
+        {% endif %}
+
+        <!-- ISI ARTIKEL -->
+        <div class="article-body">
+          {{ content }}
+        </div>
+
+        <!-- KEMBALI KE BERANDA -->
+        <div class="back-link">
+          <a href="{{ '/' | relative_url }}">
+            ← Kembali ke Beranda
+          </a>
+        </div>
+
+      </article>
+
     </div>
+  </main>
 
-  </article>
-</main>
-
-<footer>
-  &copy; {{ site.time | date: "%Y" }} Portal Berita Art
-</footer>
+  <!-- FOOTER WEBSITE -->
+  {% include footer.html %}
 
 </body>
 </html>
