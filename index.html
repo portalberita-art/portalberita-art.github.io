@@ -12,12 +12,13 @@ layout: null
   <link rel="canonical" href="{{ '/' | absolute_url }}">
 
   <style>
-    :root {
-      --navy: #10233f;
-      --gold: #e5ae49;
-      --blue: #1765a8;
-      --bg: #f3f6fa;
-    }
+.site-logo {
+  display: block;
+  width: 280px;
+  max-width: 100%;
+  height: auto;
+}
+
 
     * { box-sizing: border-box; }
 
@@ -182,9 +183,14 @@ layout: null
 
 <header>
   <div class="container">
-    <div class="brand">
-      PORTAL BERITA <span>ART</span>
-    </div>
+
+<a class="brand" href="{{ '/' | relative_url }}">
+  <img
+    src="{{ '/assets/images/logo-portalberita.png' | relative_url }}"
+    alt="Portal Berita Art"
+    class="site-logo">
+</a>
+
     <div class="tagline">
       Informasi Teknologi, Budaya & Hiburan Digital
     </div>
