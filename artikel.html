@@ -1,0 +1,6 @@
+---
+layout: default
+title: Semua Artikel
+permalink: /artikel/
+---
+<div class="page-heading"><span class="eyebrow">PUSAT ARTIKEL</span><h1>Semua Artikel</h1><p>Jelajahi seluruh artikel Portal Berita Art.</p></div><div class="cards">{% for post in site.posts %}<article class="story-card">{% if post.image %}<a href="{{ post.url | relative_url }}"><img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" width="640" height="360"></a>{% endif %}<div class="story-body"><p class="post-meta">{{ post.date | date: '%d-%m-%Y' }}</p><h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3><p>{{ post.description | default: post.excerpt | strip_html | truncate: 145 }}</p><a class="read" href="{{ post.url | relative_url }}">Baca Selengkapnya →</a></div></article>{% else %}<p>Belum ada artikel.</p>{% endfor %}</div>

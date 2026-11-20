@@ -1,0 +1,6 @@
+---
+layout: default
+title: Arsip Artikel
+permalink: /arsip/
+---
+<div class="page-heading"><span class="eyebrow">DOKUMENTASI</span><h1>Arsip Artikel</h1><p>Daftar publikasi dikelompokkan menurut bulan dan tahun.</p></div>{% assign months = site.posts | group_by_exp: 'post', "post.date | date: '%Y-%m'" %}{% for month in months %}{% assign first = month.items.first %}<section class="archive-group" id="bulan-{{ month.name }}"><h2>{{ first.date | date: '%m/%Y' }} <small>({{ month.items.size }} artikel)</small></h2><ul>{% for post in month.items %}<li><time>{{ post.date | date: '%d-%m-%Y' }}</time><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>{% endfor %}</ul></section>{% else %}<p>Belum ada arsip.</p>{% endfor %}
