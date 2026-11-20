@@ -1,0 +1,13 @@
+
+title: "Portal Berita Art"
+description: "Informasi terbaru seputar teknologi, budaya, dan hiburan digital."
+url: "https://portalberita-art.github.io"
+baseurl: ""
+lang: "id"
+timezone: "Asia/Jakarta"
+
+permalink: /:year/:month/:day/:title/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
