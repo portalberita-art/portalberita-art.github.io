@@ -9,16 +9,12 @@ author: "Portal Berita Art"
 hide_buttons: true
 ---
 
-Mahjong Ways menjadi salah satu contoh perkembangan
-hiburan digital yang memadukan unsur budaya Asia
-dengan teknologi visual modern.
+Mahjong Ways menjadi salah satu contoh perkembangan hiburan digital yang memadukan unsur budaya Asia dengan teknologi visual modern.
 
 ## Perkembangan Teknologi Visual
 
-Penggunaan animasi dan grafis interaktif memberikan
-pengalaman visual yang semakin beragam.
+Penggunaan animasi dan grafis interaktif memberikan pengalaman visual yang semakin beragam.
 
 ## Pengaruh Desain terhadap Pengalaman Pengguna
 
-Tampilan visual dapat memengaruhi perhatian dan
-cara pengguna berinteraksi dengan permainan digital.
+Tampilan visual dapat memengaruhi perhatian dan cara pengguna berinteraksi dengan permainan digital.
