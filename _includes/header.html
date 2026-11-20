@@ -1,7 +1,42 @@
-<header class="site-header"><div class="wrap header-row">
-<a class="brand" href="{{ '/' | relative_url }}" aria-label="Portal Berita Art - Beranda">
-<img src="{{ site.logo | relative_url }}" alt="Portal Berita Art" width="270" height="75" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
-<strong class="brand-text" style="display:none">PORTAL BERITA <em>ART</em></strong></a>
-<nav class="header-nav" aria-label="Navigasi utama">
-<a href="{{ '/' | relative_url }}">Beranda</a><a href="{{ '/artikel/' | relative_url }}">Semua Artikel</a><a href="{{ '/arsip/' | relative_url }}">Arsip</a><a href="{{ '/tentang/' | relative_url }}">Tentang</a>
-</nav></div></header>
+
+<!-- HEADER PORTAL BERITA ART -->
+<header class="site-header">
+  <div class="wrap header-row">
+
+    <!-- LOGO WEBSITE -->
+    <a class="brand"
+       href="{{ '/' | relative_url }}"
+       aria-label="Portal Berita Art - Beranda">
+
+      <img
+        src="{{ '/assets/images/logo-portalberita.png' | relative_url }}"
+        alt="Logo Portal Berita Art"
+        width="280"
+        height="80"
+        loading="eager">
+
+    </a>
+
+    <!-- MENU NAVIGASI -->
+    <nav class="header-nav" aria-label="Navigasi utama">
+
+      <a href="{{ '/' | relative_url }}">
+        Beranda
+      </a>
+
+      <a href="{{ '/artikel/' | relative_url }}">
+        Semua Artikel
+      </a>
+
+      <a href="{{ '/arsip/' | relative_url }}">
+        Arsip
+      </a>
+
+      <a href="{{ '/tentang/' | relative_url }}">
+        Tentang
+      </a>
+
+    </nav>
+
+  </div>
+</header>
