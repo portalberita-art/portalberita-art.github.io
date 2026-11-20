@@ -9,6 +9,56 @@
 
   <meta name="robots" content="index, follow, max-image-preview:large">
 
+  
+<!-- FAVICON PORTAL BERITA ART -->
+<link rel="icon"
+      type="image/png"
+      href="{{ '/assets/images/favicon.png' | relative_url }}">
+
+<link rel="apple-touch-icon"
+      href="{{ '/assets/images/favicon.png' | relative_url }}">
+
+<!-- INFORMASI ARTIKEL -->
+<meta name="author"
+      content="{{ page.author | default: site.title | escape }}">
+
+<meta property="article:published_time"
+      content="{{ page.date | date_to_xmlschema }}">
+
+{% if page.last_modified_at %}
+<meta property="article:modified_time"
+      content="{{ page.last_modified_at | date_to_xmlschema }}">
+{% endif %}
+
+  
+<!-- STRUCTURED DATA ARTIKEL -->
+{% assign article_image = page.image | absolute_url %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | jsonify }},
+  "image": {{ article_image | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+  "author": {
+    "@type": "Organization",
+    "name": {{ page.author | default: site.title | jsonify }}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": {{ site.title | jsonify }}
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ page.url | absolute_url | jsonify }}
+  }
+}
+</script>
+
+
   <style>
     body {
       margin: 0;
@@ -81,24 +131,55 @@
         font-size: 26px;
       }
     }
+   
+header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.site-logo {
+  display: block;
+  width: 340px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .site-logo {
+    width: 260px;
+  }
+}
+ 
   </style>
 </head>
 
 <body>
 
 <header>
-  <a href="{{ '/' | relative_url }}">Portal Berita Art</a>
+  <a href="{{ '/' | relative_url }}"
+     aria-label="Beranda Portal Berita Art">
+    <img
+      src="{{ '/assets/images/logo-portalberita.png' | relative_url }}"
+      alt="Portal Berita Art"
+      class="site-logo"
+      width="340">
+  </a>
 </header>
+
 
 <main>
   <article>
 
     <h1>{{ page.title }}</h1>
 
-    <div class="meta">
-      {{ page.date | date: "%d-%m-%Y" }}
-      | Oleh {{ page.author | default: site.title }}
-    </div>
+   <div class="meta">
+  <time datetime="{{ page.date | date_to_xmlschema }}">
+    {{ page.date | date: "%d-%m-%Y" }}
+  </time>
+  | Oleh {{ page.author | default: site.title }}
+</div>
+
 
     {% if page.image %}
     <img
