@@ -6,20 +6,21 @@ title: Beranda
   <span class="eyebrow">INFORMASI TEKNOLOGI · BUDAYA · HIBURAN DIGITAL</span>
   <h1>Jendela Informasi untuk<br><strong>Dunia yang Terus Bergerak</strong></h1>
   <p>Temukan berbagai artikel menarik tentang teknologi, budaya, tren kreatif, dan hiburan digital hanya di Portal Berita Art.</p>
-  <div class="hero-topics"><a href="{{ '/artikel/' | relative_url }}">✧ Teknologi Digital</a><a href="{{ '/artikel/' | relative_url }}">✧ Budaya &amp; Tradisi</a><a href="{{ '/artikel/' | relative_url }}">✧ Tren Hiburan</a><a href="{{ '/artikel/' | relative_url }}">✧ Gaya Hidup Digital</a></div>
+  <nav class="hero-topics" aria-label="Jelajahi topik artikel">
+    <a class="topic-pill" href="{{ '/artikel/' | relative_url }}"><span class="topic-icon" aria-hidden="true">⌘</span><span>Teknologi Digital</span></a>
+    <a class="topic-pill" href="{{ '/artikel/' | relative_url }}"><span class="topic-icon" aria-hidden="true">✿</span><span>Budaya &amp; Tradisi</span></a>
+    <a class="topic-pill" href="{{ '/artikel/' | relative_url }}"><span class="topic-icon" aria-hidden="true">✦</span><span>Tren Hiburan</span></a>
+    <a class="topic-pill" href="{{ '/artikel/' | relative_url }}"><span class="topic-icon" aria-hidden="true">◈</span><span>Gaya Hidup Digital</span></a>
+  </nav>
 </section>
 {% if site.posts.size > 0 %}
 <section class="highlight" aria-label="Highlight artikel">
   <div class="highlight-head"><span class="spark">✦</span><h2>Highlight</h2><span>Topik Pilihan</span></div>
-  <div class="highlight-cards">
-    {% assign selected = site.posts | where: 'featured', true %}
-    {% if selected.size == 0 %}{% assign selected = site.posts %}{% endif %}
-    {% for post in selected limit:4 %}
-    <a class="highlight-card" href="{{ post.url | relative_url }}">
-      {% if post.image %}<img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" width="640" height="360">{% endif %}
-      <div class="highlight-card-body"><small>{{ post.categories | first | default: 'General' }}</small><h3>{{ post.title | escape }}</h3></div>
-    </a>
-    {% endfor %}
+  <div class="ticker" aria-label="Judul artikel terbaru berjalan">
+    <div class="ticker-track">
+      {% for post in site.posts limit:6 %}<a href="{{ post.url | relative_url }}">{{ post.title | escape }} <span aria-hidden="true">✦</span></a>{% endfor %}
+      {% for post in site.posts limit:6 %}<a href="{{ post.url | relative_url }}" aria-hidden="true" tabindex="-1">{{ post.title | escape }} <span aria-hidden="true">✦</span></a>{% endfor %}
+    </div>
   </div>
 </section>
 {% endif %}
