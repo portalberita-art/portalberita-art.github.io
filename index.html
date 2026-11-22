@@ -2,9 +2,27 @@
 layout: default
 title: Beranda
 ---
-<section class="welcome"><span class="eyebrow">WAWASAN DIGITAL · BUDAYA · TEKNOLOGI</span><h1>Jendela Informasi untuk Dunia yang Terus Bergerak</h1><p>Selamat datang di Portal Berita Art. Jelajahi artikel tentang teknologi, budaya, tren kreatif, dan hiburan digital dalam satu ruang baca.</p></section>
+<section class="welcome" aria-label="Selamat datang di Portal Berita Art">
+  <span class="eyebrow">INFORMASI TEKNOLOGI · BUDAYA · HIBURAN DIGITAL</span>
+  <h1>Jendela Informasi untuk<br><strong>Dunia yang Terus Bergerak</strong></h1>
+  <p>Temukan berbagai artikel menarik tentang teknologi, budaya, tren kreatif, dan hiburan digital hanya di Portal Berita Art.</p>
+  <div class="hero-topics"><a href="{{ '/artikel/' | relative_url }}">✧ Teknologi Digital</a><a href="{{ '/artikel/' | relative_url }}">✧ Budaya &amp; Tradisi</a><a href="{{ '/artikel/' | relative_url }}">✧ Tren Hiburan</a><a href="{{ '/artikel/' | relative_url }}">✧ Gaya Hidup Digital</a></div>
+</section>
 {% if site.posts.size > 0 %}
-<section class="highlight" aria-label="Highlight artikel"><div class="highlight-head"><span class="spark">✦</span><h2>Highlight</h2><span>Topik Pilihan</span></div><div class="ticker"><div class="ticker-track">{% for post in site.posts limit:6 %}<a href="{{ post.url | relative_url }}">{{ post.title | escape }} <span>✦</span></a>{% endfor %}{% for post in site.posts limit:6 %}<a href="{{ post.url | relative_url }}" aria-hidden="true" tabindex="-1">{{ post.title | escape }} <span>✦</span></a>{% endfor %}</div></div></section>
+<section class="highlight" aria-label="Highlight artikel">
+  <div class="highlight-head"><span class="spark">✦</span><h2>Highlight</h2><span>Topik Pilihan</span></div>
+  <div class="highlight-cards">
+    {% assign selected = site.posts | where: 'featured', true %}
+    {% if selected.size == 0 %}{% assign selected = site.posts %}{% endif %}
+    {% for post in selected limit:4 %}
+    <a class="highlight-card" href="{{ post.url | relative_url }}">
+      {% if post.image %}<img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" width="640" height="360">{% endif %}
+      <div class="highlight-card-body"><small>{{ post.categories | first | default: 'General' }}</small><h3>{{ post.title | escape }}</h3></div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
 {% endif %}
-<div class="content-grid"><section id="artikel-terbaru"><div class="section-title"><h2>Artikel Terbaru</h2><a href="{{ '/artikel/' | relative_url }}">Lihat Semua →</a></div><div class="cards">{% for post in site.posts limit:10 %}<article class="story-card">{% if post.image %}<a href="{{ post.url | relative_url }}"><img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" width="640" height="360"></a>{% endif %}<div class="story-body"><p class="post-meta">{{ post.date | date: '%d-%m-%Y' }} · {{ post.categories | first | default: 'Artikel' }}</p><h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3><p>{{ post.description | default: post.excerpt | strip_html | truncate: 145 }}</p><a class="read" href="{{ post.url | relative_url }}">Baca Selengkapnya →</a></div></article>{% else %}<p>Belum ada artikel yang diterbitkan.</p>{% endfor %}</div><a class="all-link" href="{{ '/artikel/' | relative_url }}">Lihat Semua Artikel →</a></section>
+<div class="content-grid">
+<section id="artikel-terbaru"><div class="section-title"><h2>Artikel Terbaru</h2><a href="{{ '/artikel/' | relative_url }}">Lihat Semua →</a></div><div class="cards">{% for post in site.posts limit:10 %}<article class="story-card">{% if post.image %}<a href="{{ post.url | relative_url }}"><img src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" width="640" height="360"></a>{% endif %}<div class="story-body"><p class="post-meta">{{ post.date | date: '%d-%m-%Y' }} · {{ post.categories | first | default: 'Artikel' }}</p><h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3><p>{{ post.description | default: post.excerpt | strip_html | truncate: 145 }}</p><a class="read" href="{{ post.url | relative_url }}">Baca Selengkapnya →</a></div></article>{% else %}<p>Belum ada artikel yang diterbitkan.</p>{% endfor %}</div><a class="all-link" href="{{ '/artikel/' | relative_url }}">Lihat Semua Artikel →</a></section>
 <aside class="sidebar"><section class="side-panel"><h2>Arsip Artikel</h2>{% assign months = site.posts | group_by_exp: 'post', "post.date | date: '%Y-%m'" %}<ul>{% for month in months limit:12 %}{% assign first = month.items.first %}<li><a href="{{ '/arsip/' | relative_url }}#bulan-{{ month.name }}">{{ first.date | date: '%m/%Y' }} <small>({{ month.items.size }} artikel)</small></a></li>{% endfor %}</ul><a class="panel-button" href="{{ '/arsip/' | relative_url }}">Lihat Semua Arsip →</a></section><section class="side-panel"><h2>Artikel Pilihan</h2><ul>{% assign selected = site.posts | where: 'featured', true %}{% if selected.size == 0 %}{% assign selected = site.posts %}{% endif %}{% for post in selected limit:5 %}<li><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>{% endfor %}</ul></section></aside></div>
