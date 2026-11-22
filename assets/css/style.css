@@ -1,6 +1,5 @@
 /* =========================================================
    PORTAL BERITA ART — FINAL MIDNIGHT BLUE & GOLD
-   Hanya mengganti assets/css/style.css
    ========================================================= */
 :root {
   --navy:#101D40;
@@ -183,4 +182,41 @@ img { max-width:100%; }
   .ticker-track { animation:none; flex-wrap:wrap; width:auto; padding:0 14px; }
   .ticker-track a[aria-hidden=true] { display:none; }
   .story-card,.header-nav a,.welcome .hero-topics .topic-pill { transition:none; }
+}
+
+/* FONT PORTAL BERITA ART */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* Font utama website */
+body {
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+/* Judul banner */
+.welcome h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+/* Judul artikel dan bagian lainnya */
+h1, h2, h3,
+.story-card h3,
+.section-title h2,
+.side-panel h2 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Menu navigasi */
+.header-nav a {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+/* Deskripsi banner dan isi artikel */
+.welcome p,
+.story-body p,
+.post-content {
+  font-family: 'Inter', sans-serif;
 }
