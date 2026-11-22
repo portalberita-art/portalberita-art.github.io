@@ -1,4 +1,3 @@
-
 /* ==========================================
    PORTAL BERITA ART
    ========================================== */
@@ -673,3 +672,147 @@ img {
     transition: none;
   }
 }
+/* ===== TAMPILAN BERANDA MODERN ===== */
+:root { --navy:#101b42; --navy-deep:#0a1232; --blue:#367cff; --bg:#f3f6ff; }
+.wrap { width:min(1320px,calc(100% - 48px)); }
+.site-header {background:linear-gradient(105deg,#09122d,#203b80 65%,#0a1432);border-top:0;border-bottom:1px solid #38518a;box-shadow:0 4px 20px #07122b25}
+.header-row {min-height:100px}
+.header-nav {gap:10px}
+.header-nav a {color:#f7faff;background:#0a1535;padding:11px 17px;border-radius:30px;border:1px solid #ffffff12}
+.header-nav a:hover,.header-nav a:focus-visible {color:white;background:#367cff}
+.header-nav a:first-child {background:linear-gradient(100deg,#485ef6,#29a1f8)}
+.brand img {filter:drop-shadow(0 2px 5px #0003)}
+.main-area {padding-top:24px}
+.welcome {min-height:340px;display:flex;flex-direction:column;justify-content:center;padding:38px 52px;border-radius:22px;background:linear-gradient(90deg,#08112e 0%,#0a1539 35%,#0b1743aa 55%,#0a153300 100%),url('../images/hero-portalberita.jpg') center right/cover no-repeat;box-shadow:0 14px 28px #0b1c4920}
+.welcome::after {display:none}
+.welcome .eyebrow {color:#6de6ff;font-size:12px;letter-spacing:2px}
+.welcome h1 {font-size:clamp(30px,3.6vw,48px);line-height:1.14;max-width:680px;margin:14px 0}
+.welcome h1 strong {color:#70e3ff}
+.welcome p {max-width:560px;font-size:16px;color:#e5f0ff}
+.hero-topics {display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.hero-topics a {border:1px solid #5b98d6;border-radius:24px;padding:8px 14px;font-size:12px;font-weight:700;background:#0b1e49bb;color:white}
+.hero-topics a:hover {background:#296ce0;color:white}
+.highlight {border-radius:22px;margin-bottom:32px;box-shadow:0 10px 26px #142b5015}
+.highlight-head {padding:14px 22px;background:linear-gradient(110deg,#101d50,#2c57b2)}
+.highlight-cards {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;padding:18px}
+.highlight-card {display:block;min-width:0;background:#f8faff;border:1px solid #e2e9f7;border-radius:16px;overflow:hidden;box-shadow:0 4px 12px #142b5012}
+.highlight-card img {display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.highlight-card-body {padding:12px 13px 16px}
+.highlight-card-body small {display:inline-block;background:#4a5cf5;color:white;border-radius:20px;padding:3px 10px;margin-bottom:8px;font-size:11px}
+.highlight-card-body h3 {margin:0;font-size:15px;line-height:1.4;overflow-wrap:anywhere}
+.story-card {border-radius:16px}
+@media(max-width:900px){.highlight-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.welcome{background-position:62% center}}
+@media(max-width:580px){.wrap{width:calc(100% - 28px)}.header-nav a{padding:8px 12px;font-size:12px}.welcome{padding:30px 22px;min-height:400px;background:linear-gradient(90deg,#08112ff2,#08112fc2),url('../images/hero-portalberita.jpg') center/cover}.welcome h1{font-size:30px}.welcome p{font-size:14px}.highlight-cards{grid-template-columns:1fr 1fr;gap:10px;padding:10px}.highlight-card-body{padding:10px}.highlight-card-body h3{font-size:12px}}
+
+
+/* ===================================================
+   PORTAL BERITA ART | EMERALD TEAL & GOLD
+   Theme overrides — preserves all existing Jekyll URLs
+   =================================================== */
+:root {
+  --navy:#075B5B; --navy-deep:#064849; --gold:#D9AE58;
+  --blue:#087D79; --text:#153D3C; --muted:#627C79;
+  --border:#D8E9E4; --bg:#F4FAF8;
+}
+body { background:var(--bg);color:var(--text); }
+a:hover {color:#A77928}
+.site-header {
+  background:linear-gradient(115deg,#FFFFFF 0%,#F4FBF8 58%,#E2F3EB 100%);
+  border-top:4px solid #D9AE58;border-bottom:1px solid #CBE4DC;
+  box-shadow:0 5px 22px rgba(4,79,73,.10);
+}
+.brand img {filter:none}
+.header-nav a {
+  background:#FFFFFF;color:#075B5B;border:1px solid #C8E2D8;
+  box-shadow:0 2px 6px rgba(5,82,74,.05);
+}
+.header-nav a:hover,.header-nav a:focus-visible {
+  background:#DDF2EB;color:#064849;border-color:#74B8A6;
+}
+.header-nav a:first-child {
+  background:linear-gradient(115deg,#087D79,#16A6A0);
+  color:#FFFFFF;border-color:#087D79;
+}
+.header-nav a:first-child:hover {background:#075B5B;color:white}
+.welcome {
+  background:
+    linear-gradient(90deg,rgba(3,57,54,.98) 0%,rgba(4,76,71,.96) 29%,rgba(5,87,78,.78) 48%,rgba(5,81,74,.20) 76%,rgba(4,74,68,.02) 100%),
+    url('../images/hero-portalberita.jpg') center right/cover no-repeat;
+  box-shadow:0 15px 30px rgba(6,83,75,.15);
+  border:1px solid #C5E1D3;
+}
+.welcome .eyebrow {color:#F2D58B}
+.welcome h1 strong {color:#E8C26B}
+.welcome p {color:#EFFAF6}
+.hero-topics a {background:rgba(4,75,68,.72);border-color:#D9AE58;color:#FFFFFF}
+.hero-topics a:hover,.hero-topics a:focus-visible {background:#D9AE58;color:#103C37}
+.highlight {border:1px solid #D3E7DF;box-shadow:0 10px 25px rgba(6,81,74,.10)}
+.highlight-head {background:linear-gradient(110deg,#064849,#087D79 68%,#16A6A0);color:white}
+.spark {color:#F5CF79}
+.highlight-card {background:#FFFFFF;border-color:#DAEAE4;box-shadow:0 4px 12px rgba(6,81,74,.07)}
+.highlight-card-body small {background:#D9AE58;color:#254137;font-weight:700}
+.highlight-card:hover,.story-card:hover {box-shadow:0 9px 23px rgba(6,81,74,.14)}
+.section-title h2 {border-left-color:#D9AE58}
+.section-title > a,.read,.back-link {color:#087D79}
+.story-card,.side-panel,.archive-group,.text-page,.article-page {border-color:#D9E9E3}
+.side-panel h2 {border-bottom-color:#D9AE58}
+.all-link,.panel-button {background:#075B5B}
+.all-link:hover,.panel-button:hover {background:#087D79}
+.archive-group h2 {color:#075B5B}
+.article-label {color:#A77928}
+.site-footer {background:linear-gradient(110deg,#043F3D,#075B5B);color:#E4F5F0}
+@media(max-width:580px){
+  .welcome {background:linear-gradient(90deg,rgba(3,58,54,.96),rgba(5,83,75,.80)),url('../images/hero-portalberita.jpg') center/cover no-repeat}
+  .header-nav a {padding:8px 12px}
+}
+
+/* ===== HERO CATEGORY PILLS — EMERALD TEAL & GOLD ===== */
+.welcome .hero-topics {
+  display:flex; flex-wrap:wrap; align-items:center;
+  gap:12px; margin-top:25px; position:relative; z-index:2;
+}
+.welcome .hero-topics .topic-pill {
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:9px; min-height:44px; padding:9px 16px 9px 10px;
+  border:1px solid rgba(235,203,123,.85); border-radius:999px;
+  background:linear-gradient(135deg,rgba(3,74,67,.94),rgba(9,113,100,.88));
+  box-shadow:0 4px 12px rgba(0,28,25,.24),inset 0 1px 0 rgba(255,255,255,.12);
+  color:#fff !important; font-size:13px; font-weight:700; line-height:1.3;
+  text-decoration:none; white-space:nowrap;
+  transition:background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.welcome .hero-topics .topic-icon {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:27px; height:27px; flex:0 0 27px;
+  border-radius:50%; background:#D9AE58; color:#064849;
+  font-size:16px; font-weight:800; line-height:1;
+}
+.welcome .hero-topics .topic-pill:hover,
+.welcome .hero-topics .topic-pill:focus-visible {
+  transform:translateY(-2px); background:#D9AE58;
+  color:#064849 !important; border-color:#FFE5A4;
+  box-shadow:0 8px 20px rgba(0,30,26,.25);
+}
+.welcome .hero-topics .topic-pill:hover .topic-icon,
+.welcome .hero-topics .topic-pill:focus-visible .topic-icon {
+  background:#075B5B; color:#FFE5A4;
+}
+.welcome .hero-topics .topic-pill:focus-visible {outline:3px solid #fff;outline-offset:3px}
+@media(max-width:580px){
+  .welcome .hero-topics {gap:9px; margin-top:20px}
+  .welcome .hero-topics .topic-pill {font-size:11px; min-height:40px; padding:7px 10px 7px 7px; gap:6px; white-space:normal}
+  .welcome .hero-topics .topic-icon {width:23px;height:23px;flex-basis:23px;font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){.welcome .hero-topics .topic-pill{transition:none}}
+
+/* Highlight teks berjalan, sesuai referensi; warna Emerald Teal & Gold */
+.highlight {border-radius:14px;overflow:hidden;margin-bottom:24px}
+.highlight-head {padding:12px 18px;background:linear-gradient(110deg,#075B5B,#087D79 70%,#16A6A0)}
+.highlight-head h2 {font-size:18px}
+.ticker {background:#fff;padding:12px 0;overflow:hidden}
+.ticker-track {display:flex;align-items:center;gap:24px;width:max-content;animation:move 45s linear infinite}
+.ticker-track a {font-size:13px;color:#075B5B;font-weight:700;white-space:nowrap}
+.ticker-track a:hover {color:#b38636}
+.ticker-track span {color:#D9AE58;padding-left:18px}
+.ticker:hover .ticker-track,.ticker:focus-within .ticker-track {animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none;flex-wrap:wrap;width:auto;padding:0 14px}.ticker-track a[aria-hidden=true]{display:none}}
