@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
 /* =========================================================
    PORTAL BERITA ART — FINAL MIDNIGHT BLUE & GOLD
    ========================================================= */
@@ -184,39 +186,62 @@ img { max-width:100%; }
   .story-card,.header-nav a,.welcome .hero-topics .topic-pill { transition:none; }
 }
 
-/* FONT PORTAL BERITA ART */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
-
-/* Font utama website */
+/* =========================================================
+   TIPOGRAFI FINAL — POPPINS (JUDUL) + INTER (ISI)
+   ========================================================= */
 body {
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
 }
 
-/* Judul banner */
+h1, h2, h3, h4, h5, h6,
+.welcome h1, .section-title h2, .highlight-head h2,
+.story-body h3, .side-panel h2, .page-heading h1,
+.article-page h1, .article-body h2, .archive-group h2 {
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 700;
+}
+
 .welcome h1 {
-  font-family: 'Poppins', sans-serif;
   font-weight: 800;
   line-height: 1.2;
+  letter-spacing: -0.025em;
 }
+.welcome h1 strong { font-weight: 800; }
 
-/* Judul artikel dan bagian lainnya */
-h1, h2, h3,
-.story-card h3,
-.section-title h2,
-.side-panel h2 {
-  font-family: 'Poppins', sans-serif;
+.section-title h2 {
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
 }
-
-/* Menu navigasi */
-.header-nav a {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
+.story-body h3 {
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.48;
+  letter-spacing: -0.012em;
 }
+.side-panel h2 { font-weight: 700; }
 
-/* Deskripsi banner dan isi artikel */
-.welcome p,
-.story-body p,
-.post-content {
-  font-family: 'Inter', sans-serif;
+.header-nav a,
+.eyebrow, .welcome .eyebrow,
+.topic-pill, .post-meta, .read, .back-link,
+.all-link, .panel-button, .section-title > a,
+.ticker-track a, .footer-grid nav {
+  font-family: 'Inter', Arial, sans-serif;
+}
+.header-nav a { font-weight: 700; }
+
+.welcome p, .story-body p, .article-body,
+.post-lead, .text-page, .archive-group,
+.side-panel, .post-content {
+  font-family: 'Inter', Arial, sans-serif;
+}
+.story-body > p:not(.post-meta) { font-size: 14px; line-height: 1.75; }
+.post-meta { font-weight: 600; }
+
+@media (max-width: 580px) {
+  .welcome h1 { font-size: 30px; }
+  .section-title h2 { font-size: 23px; }
+  .story-body h3 { font-size: 18px; }
 }
