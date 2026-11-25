@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 /* =========================================================
-   PORTAL BERITA ART — FINAL MIDNIGHT BLUE & GOLD
+   PORTAL BERITA ART — FINAL ROSE MAROON & CHAMPAGNE GOLD
    ========================================================= */
 :root {
-  --navy:#101D40;
-  --navy-deep:#09152F;
-  --navy-light:#244A86;
+  --navy:#641229;
+  --navy-deep:#400916;
+  --navy-light:#801D38;
   --gold:#DDB45B;
   --gold-light:#F2D58D;
-  --blue:#244A86;
-  --text:#172849;
+  --blue:#801D38;
+  --text:#401C2A;
   --muted:#64748B;
-  --border:#DEE5F0;
-  --bg:#F6F7FB;
+  --border:#E9DDE1;
+  --bg:#F8F5F6;
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
@@ -25,10 +25,10 @@ img { max-width:100%; }
 
 /* HEADER — logo transparan, TANPA kotak putih */
 .site-header {
-  background:linear-gradient(110deg,#0B1532 0%,#101D40 48%,#244A86 100%);
+  background:linear-gradient(110deg,#B76E79 0%,#A24E60 25%,#801D38 45%,#550C20 70%,#400916 100%);
   border-top:4px solid var(--gold);
   border-bottom:1px solid rgba(221,180,91,.42);
-  box-shadow:0 5px 20px rgba(9,21,47,.20);
+  box-shadow:0 5px 20px rgba(64,9,22,.20);
 }
 .header-row { min-height:122px; display:flex; align-items:center; justify-content:space-between; gap:28px; padding:16px 0; }
 .site-header .brand {
@@ -38,7 +38,7 @@ img { max-width:100%; }
 .site-header .brand img {
   display:block; width:380px; max-width:100%; height:auto; max-height:112px;
   object-fit:contain; background:transparent; border:0; border-radius:0;
-  filter:drop-shadow(0 2px 4px rgba(0,0,0,.20));
+  filter:none;
 }
 .brand-text { color:#fff; font-size:23px; font-weight:800; }
 .brand-text em { color:var(--gold); font-style:normal; }
@@ -58,21 +58,21 @@ img { max-width:100%; }
   position:relative; isolation:isolate; overflow:hidden; display:flex; flex-direction:column;
   justify-content:center; min-height:350px; margin-bottom:26px; padding:40px 50px;
   border-radius:22px; color:#fff; border:1px solid rgba(221,180,91,.42);
-  background:linear-gradient(90deg,rgba(7,17,43,.98) 0%,rgba(10,25,59,.97) 30%,rgba(12,31,71,.82) 52%,rgba(13,31,66,.16) 85%),url('../images/hero-portalberita.jpg') center right/cover no-repeat;
-  box-shadow:0 14px 30px rgba(16,29,64,.16);
+  background:linear-gradient(90deg,rgba(64,9,22,.98) 0%,rgba(85,12,32,.97) 30%,rgba(100,18,41,.82) 52%,rgba(100,18,41,.16) 85%),url('../images/hero-portalberita.jpg') center right/cover no-repeat;
+  box-shadow:0 14px 30px rgba(64,9,22,.16);
 }
 .welcome::after { display:none; }
 .eyebrow,.welcome .eyebrow { color:var(--gold-light); font-size:12px; font-weight:800; letter-spacing:1.8px; }
 .welcome h1 {font-family: 'Poppins', sans-serif;font-size: clamp(26px, 3vw, 40px);font-weight: 800;line-height: 1.25;max-width: 850px;margin: 14px 0;letter-spacing: -0.8px;}
 .welcome h1 strong { color:#F2C76C; }
-.welcome p { max-width:580px; margin:0; font-size:16px; line-height:1.7; color:#EEF3FF; }
+.welcome p { max-width:580px; margin:0; font-size:16px; line-height:1.7; color:#FFF5F5; }
 .hero-topics,.welcome .hero-topics { display:flex; align-items:center; flex-wrap:wrap; gap:11px; margin-top:24px; position:relative; z-index:1; }
 .welcome .hero-topics .topic-pill {
   display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:44px;
   padding:8px 16px 8px 9px; border-radius:999px; border:1px solid var(--gold);
-  background:linear-gradient(125deg,rgba(10,27,65,.95),rgba(29,63,116,.90));
+  background:linear-gradient(125deg,rgba(64,9,22,.95),rgba(128,29,56,.90));
   color:#fff; font-size:13px; font-weight:700; line-height:1.3; white-space:nowrap;
-  box-shadow:0 4px 12px rgba(3,10,28,.23); transition:transform .2s,background .2s,color .2s;
+  box-shadow:0 4px 12px rgba(64,9,22,.23); transition:transform .2s,background .2s,color .2s;
 }
 .welcome .hero-topics .topic-icon {
   display:inline-flex; align-items:center; justify-content:center;
@@ -83,8 +83,8 @@ img { max-width:100%; }
 .welcome .hero-topics .topic-pill:hover .topic-icon,.welcome .hero-topics .topic-pill:focus-visible .topic-icon { background:var(--navy); color:var(--gold-light); }
 
 /* HIGHLIGHT — TEKS BERJALAN */
-.highlight { border:1px solid var(--border); background:#fff; border-radius:14px; overflow:hidden; margin-bottom:28px; box-shadow:0 9px 22px rgba(16,29,64,.09); }
-.highlight-head { display:flex; align-items:center; gap:12px; padding:12px 19px; background:linear-gradient(110deg,#101D40,#244A86 75%,#345E9B); color:#fff; }
+.highlight { border:1px solid var(--border); background:#fff; border-radius:14px; overflow:hidden; margin-bottom:28px; box-shadow:0 9px 22px rgba(64,9,22,.09); }
+.highlight-head { display:flex; align-items:center; gap:12px; padding:12px 19px; background:linear-gradient(110deg,#641229,#801D38 75%,#96334B); color:#fff; }
 .highlight-head h2 { margin:0; text-transform:uppercase; letter-spacing:.7px; font-size:18px; }
 .highlight-head > span:last-child { margin-left:auto; font-size:11px; opacity:.9; }
 .spark { color:var(--gold-light); }
@@ -103,8 +103,8 @@ img { max-width:100%; }
 .section-title h2 { margin:0; border-left:4px solid var(--gold); padding-left:12px; font-size:24px; line-height:1.35; }
 .section-title > a { color:var(--blue); font-size:13px; font-weight:700; white-space:nowrap; }
 .cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
-.story-card { min-width:0; background:#fff; border:1px solid var(--border); border-radius:15px; overflow:hidden; box-shadow:0 4px 16px rgba(16,29,64,.06); transition:transform .2s,box-shadow .2s; }
-.story-card:hover { transform:translateY(-3px); box-shadow:0 10px 24px rgba(16,29,64,.15); }
+.story-card { min-width:0; background:#fff; border:1px solid var(--border); border-radius:15px; overflow:hidden; box-shadow:0 4px 16px rgba(64,9,22,.06); transition:transform .2s,box-shadow .2s; }
+.story-card:hover { transform:translateY(-3px); box-shadow:0 10px 24px rgba(64,9,22,.15); }
 .story-card img { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; }
 .story-body { padding:16px; }
 .post-meta { margin:0 0 9px; font-size:12px; color:#748198; }
@@ -140,7 +140,7 @@ img { max-width:100%; }
 .text-page { max-width:850px; }
 
 /* FOOTER */
-.site-footer { padding:32px 0; background:linear-gradient(110deg,#09152F,#172D5D); color:#E7ECF7; }
+.site-footer { padding:32px 0; background:linear-gradient(110deg,#400916,#641229); color:#F5E7EB; }
 .footer-grid { display:flex; justify-content:space-between; gap:25px; flex-wrap:wrap; }
 .footer-grid strong { color:#fff; }
 .footer-grid nav { display:flex; gap:20px; flex-wrap:wrap; font-size:14px; }
@@ -166,7 +166,7 @@ img { max-width:100%; }
   .site-header .brand img { width:280px; max-height:90px; }
   .header-nav { gap:7px; }
   .header-nav a { min-height:38px; padding:8px 11px; font-size:12px; }
-  .welcome { min-height:410px; padding:30px 21px; background:linear-gradient(90deg,rgba(7,17,43,.97),rgba(10,25,59,.83)),url('../images/hero-portalberita.jpg') center/cover no-repeat; }
+  .welcome { min-height:410px; padding:30px 21px; background:linear-gradient(90deg,rgba(64,9,22,.97),rgba(85,12,32,.83)),url('../images/hero-portalberita.jpg') center/cover no-repeat; }
   .welcome h1 { font-size:30px; }
   .welcome p { font-size:14px; }
   .welcome .hero-topics { gap:8px; margin-top:20px; }
@@ -244,4 +244,11 @@ h1, h2, h3, h4, h5, h6,
   .welcome h1 { font-size: 30px; }
   .section-title h2 { font-size: 23px; }
   .story-body h3 { font-size: 18px; }
+}
+/* Header mobile: pertahankan latar terang di belakang logo */
+@media(max-width:850px) {
+  .site-header { background:linear-gradient(180deg,#B76E79 0%,#B76E79 42%,#801D38 68%,#400916 100%); }
+  .header-nav a { background:rgba(64,9,22,.45); }
+  .header-nav a:first-child { background:var(--gold); }
+  .header-nav a:hover,.header-nav a:focus-visible { background:var(--gold-light); }
 }
